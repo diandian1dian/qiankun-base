@@ -13,5 +13,79 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <!-- <div id="shadow"></div> -->
+
+    <script>
+        //CSS隔离 沙箱
+        //dom的APi
+        // let shadowDOM = shadow.attachShadow({mode: 'closed'}) //外界无法访问  shadowDOM
+        // let pElm = document.createElement('p');
+
+        // pElm.innerHTML = 'hello'
+        // let styleElm =document.createElement('style');
+
+        // styleElm.textContent = `
+        // p{color: red}
+        // `
+        // shadowDOM.appendChild(pElm)
+        // shadowDOM.appendChild(styleElm)
+
+        // //JS隔离
+
+
+        // //如果应用加载 刚开始加载A应用 window.a B应用（window.a）会被污染
+        // //单个应用切换 实现隔离 用沙箱 创造一个干净的环境
+
+        // //JS 沙箱
+        // //1.  快照沙箱 1年前拍一张 现在拍一张 （将区别保存起来）再回到一年前 恢复的话就直接加载区别
+        
+        // class snapShotSandbox{
+        //     constructor(){
+        //         this.proxy = window,
+        //         this.modifiyPropsMap = [],
+        //         this.active()
+        //     }
+        //     active(){//激活
+        //         this.windowSnapShot = {} //拍照
+        //         for(const prop in window){
+        //             if(window.hasOwnProperty(prop)){
+        //                 this.windowSnapShot[prop] = window[prop]
+        //             }
+        //         }
+
+        //         Object.keys(this.modifiyPropsMap).forEach(prop =>{
+        //             window[prop] = this.modifiyPropsMap[prop]
+        //         })
+        //     }
+        //     inactive(){//失效
+        //         for(const prop in window){
+        //             if(window.hasOwnProperty(prop)){
+        //                 if(window[prop] !== this.windowSnapShot[prop] ){
+        //                     this.modifiyPropsMap[prop] = window[prop] //把不同的存储起来
+        //                     window[prop] = this.modifiyPropsMap[prop] //恢复
+        //                 }
+        //             }
+                    
+        //         }
+        //     }
+        // }
+
+        // let sandbox = new snapShotSandbox()
+        // console.log(sandbox)
+        // ((window) => {
+        //     window.a = 1
+        //     window.b = 2
+
+        //     console.log(window.a, window.b)
+        //     sandbox.inactive()
+        //     console.log(window.a, window.b)
+        //     sandbox.active()
+        //     console.log(window.a, window.b)
+        // })(sandbox.proxy)
+
+
+        //多个应用  使用代理沙箱
+        
+    </script>
   </body>
 </html>
